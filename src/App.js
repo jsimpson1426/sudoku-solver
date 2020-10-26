@@ -1,20 +1,14 @@
 import React, { Component } from "react";
 import SudokuGrid from "./components/sudokuGrid/sudokuGrid";
 import Animator from "./helpers/animator";
-import "./App.css";
+import puzzleRandomizer from "./helpers/puzzleRandomizer";
+import SlideButton from './components/common/slideButton/slideButton';
+import Slider from "./components/common/slider/slider";
+import "./App.sass";
 
 class App extends Component {
-  sudokuData = [
-    [0, 0, 0, 2, 6, 0, 7, 0, 1],
-    [6, 8, 0, 0, 7, 0, 0, 9, 0],
-    [1, 9, 0, 0, 0, 4, 5, 0, 0],
-    [8, 2, 0, 1, 0, 0, 0, 4, 0],
-    [0, 0, 4, 6, 0, 2, 9, 0, 0],
-    [0, 5, 0, 0, 0, 3, 0, 2, 8],
-    [0, 0, 9, 3, 0, 0, 0, 7, 4],
-    [0, 4, 0, 0, 5, 0, 0, 3, 6],
-    [7, 0, 3, 0, 1, 8, 0, 0, 0],
-  ];
+  
+  sudokuData = puzzleRandomizer.generatePuzzle();
 
   moveIsValid(val, row, col) {
     // check row
@@ -107,7 +101,7 @@ class App extends Component {
   }
 
   componentDidMount = () => {
-    this.solve();
+    //this.solve();
   };
 
   print() {
@@ -123,9 +117,29 @@ class App extends Component {
     this.print();
   }
 
+  reset(){
+    for(let i = 0; i < 9; i++){
+      for(let j = 0; j < 9; j++){
+        console.log();
+      }
+    }
+  }
+
+  newPuzzle(){
+
+  }
+
   render() {
     return (
       <div className="App">
+        <ul className="sudoku-ul">
+          <li className="sudoku-li">
+            <Slider />
+          </li>
+          <li className="sudoku-li"><SlideButton onClick={this.solve} btnText="Start"/></li>
+          <li className="sudoku-li"><SlideButton onClick={this.newPuzzle} btnText="New Puzzle"/></li>
+          <li className="sudoku-li"><SlideButton onClick={this.reset} btnText="Reset"/></li>
+        </ul>
         <SudokuGrid sudokuData={this.sudokuData} />
       </div>
     );

@@ -8,7 +8,7 @@ import {
 
 class Animator {
   constructor() {
-    this.delay = 100;
+    this.delay = .01;
     this.animationQueue = [];
   }
 
