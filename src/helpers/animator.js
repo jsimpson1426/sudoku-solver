@@ -4,11 +4,12 @@ import {
   DeletionAnimation,
   BacktrackAnimation,
   CompletionAnimation,
+  EnableAnimation
 } from "./animations";
 
 class Animator {
-  constructor() {
-    this.delay = .01;
+  constructor(delay) {
+    this.delay = delay;
     this.animationQueue = [];
   }
 
@@ -20,36 +21,52 @@ class Animator {
     return this.delay;
   }
 
-  queueNumberAnimation(value, position) {
+  disableUI = () => {
+    document.getElementById("slider").disabled = true;
+    document.getElementById("start").disabled = true;
+    document.getElementById("new").disabled = true;
+  }
+
+  queueNumberAnimation = (value, position) => {
     const animation = new NumberAnimation(value, position, this.delay);
     this.animationQueue.push(animation);
   }
 
-  queueProgressAnimation(position) {
+  queueProgressAnimation = (position) => {
     const animation = new ProgressAnimation(position, this.delay);
     this.animationQueue.push(animation);
   }
 
-  queueDeletionAnimation(position) {
+  queueDeletionAnimation = (position) => {
     const animation = new DeletionAnimation(position, this.delay);
     this.animationQueue.push(animation);
   }
 
-  queueBacktrackAnimation(position) {
+  queueBacktrackAnimation = (position) => {
     const animation = new BacktrackAnimation(position, this.delay);
     this.animationQueue.push(animation);
   }
 
-  queueCompletionAnimation() {
+  queueCompletionAnimation = () => {
     const animation = new CompletionAnimation(this.delay);
     this.animationQueue.push(animation);
   }
 
-  animate() {
-    for (let i = 0; i < this.animationQueue.length; i++) {
-      this.animationQueue[i].animate(i);
+  queueEnableAnimation = () => {
+    const animation = new EnableAnimation(this.delay);
+    this.animationQueue.push(animation);
+  }
+
+  animate(ani = 0) {
+    if(ani){
+      ani.animate(0);
+    }
+    else{
+      for (let i = 0; i < this.animationQueue.length; i++) {
+        this.animationQueue[i].animate(i);
+      }
     }
   }
 }
 
-export default new Animator();
+export default Animator;

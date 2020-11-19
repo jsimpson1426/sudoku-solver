@@ -1,10 +1,19 @@
+@import "src/Breakpoints"
+@import "src/fonts"
+
 .App
   text-align: center
 
 .sudoku-ul
   padding: 0px 0px 0px 0px
 
+.sudoku-h1
+  font-family: MilkyNice
+
 .sudoku-li
-  margin: 0px 0px 0px 20px
-  display: inline-block
+  margin: 0px 0px 0px 0px
   list-style-type: none
+  padding: 10px 0px 10px 0px
+  @include sm
+    margin: 0px 0px 0px 20px
+    display: inline-block

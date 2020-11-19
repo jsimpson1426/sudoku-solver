@@ -1,3 +1,17 @@
+class EnableAnimation {
+  constructor(delay) {
+    this.delay = delay;
+  }
+
+  animate(index) {
+    setTimeout(() => {
+      document.getElementById("slider").disabled = false;
+      document.getElementById("start").disabled = false;
+      document.getElementById("new").disabled = false;
+    }, index * this.delay);
+  }
+}
+
 class NumberAnimation {
   constructor(value, position, delay) {
     this.value = value;
@@ -81,7 +95,7 @@ class BacktrackAnimation {
     setTimeout(() => {
       const eID = "SudokuBox" + this.position[0] + this.position[1];
 
-      if (!(this.position[0] == 8) || !(this.position[1] == 8)) {
+      if (!(this.position[0] === 8) || !(this.position[1] === 8)) {
         let nextRow = this.position[0];
         let nextColumn = this.position[1] + 1;
 
@@ -124,4 +138,5 @@ export {
   DeletionAnimation,
   BacktrackAnimation,
   CompletionAnimation,
+  EnableAnimation
 };

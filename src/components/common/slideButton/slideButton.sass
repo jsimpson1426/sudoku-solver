@@ -1,25 +1,36 @@
-@use "src/Breakpoints" as bp
-@use "src/globalStyles" as style
+@import "src/Breakpoints"
 
-.slidebutton-a
+.slidebutton-div
+    background-color: white
     color: Black
     text-align: center
+    font-family: MilkyNice
+    font-size: 14px
     border: 2px solid rgb(216, 2, 134)
     border-radius: 8px
-    width: 90px
+    width: 41%
     padding: 8px
     cursor: pointer
     box-shadow: inset 0 0 0 0 #D80286
-    float: right
     display: inline
     text-decoration: none
     color: black
     -webkit-transition: font-weight .08s, ease .08s
     -moz-transition: font-weight 0.08s, ease .08s
     transition: font-weight .08s, ease .08s
+    @include sm
+        width: 100px
+        display: inline
 
     &:hover
         box-shadow: inset 0 0 0 2px #D80286
         text-decoration: none
         color: black
         font-weight: bold
+
+    &:focus
+        outline: none
+
+    &:disabled
+        pointer-events: none
+        opacity: 0.4

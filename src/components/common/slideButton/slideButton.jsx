@@ -1,11 +1,11 @@
 import React from "react";
 import "./slideButton.sass";
 
-const SlideButton = ({ btnLink, btnText }) => {
+const SlideButton = ({ clickFunction, btnText, id }) => {
   return (
-    <a className="slidebutton-a" href={btnLink}>
+    <button id={id} className="slidebutton-div" onClick={clickFunction}>
       {btnText}
-    </a>
+    </button>
   );
 };
 
