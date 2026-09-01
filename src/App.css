@@ -1,0 +1,14 @@
+
+
+.App{
+  text-align: center;
+}
+
+.sudoku-ul{
+  padding: 0px 0px 0px 0px;
+}
+.sudoku-li{
+  margin: 0px 0px 0px 0px;
+  list-style-type: none;
+  padding: 10px 0px 10px 0px;
+}

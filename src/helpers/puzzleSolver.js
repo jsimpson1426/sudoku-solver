@@ -120,7 +120,7 @@ class PuzzleSolver{
       if(this.isSolved){
         this.reset();
       }
-      let delay = 10.1 - document.getElementById("slider").value/10;
+      let delay = 100.1 - document.getElementById("slider").value;
       this.animator = new Animator(delay);
       document.getElementById("start").textContent = "Restart";
       this.animator.disableUI();

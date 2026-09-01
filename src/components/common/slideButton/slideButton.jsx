@@ -1,5 +1,5 @@
 import React from "react";
-import "./slideButton.sass";
+import "./slideButton.css";
 
 const SlideButton = ({ clickFunction, btnText, id }) => {
   return (

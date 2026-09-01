@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import "./sudokuGrid.sass";
+import "./sudokuGrid.css";
 
 class SudokuGrid extends Component {
   state = { sudokuData: this.props.sudokuData };

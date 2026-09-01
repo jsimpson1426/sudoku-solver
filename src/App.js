@@ -3,7 +3,7 @@ import SudokuGrid from "./components/sudokuGrid/sudokuGrid";
 import PuzzleSolver from "./helpers/puzzleSolver";
 import SlideButton from './components/common/slideButton/slideButton';
 import Slider from "./components/common/slider/slider";
-import "./App.sass";
+import "./App.css";
 
 class App extends Component {
 
