@@ -1,7 +1,7 @@
 {
   "name": "sudoku-solver",
   "version": "0.1.0",
-  "homepage": ".",
+  "homepage": "https://jsimpson1426.github.io/sudoku-solver/",
   "private": true,
   "engines": {
     "npm": "6.9.0",
